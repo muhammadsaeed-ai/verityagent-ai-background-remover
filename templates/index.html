@@ -16,8 +16,11 @@
 <div class="shell">
   <aside class="sidebar">
     <a class="brand" href="#" aria-label="VerityAgent Cutout Studio">
-      <span class="brand-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 8.5 17 31a3.25 3.25 0 0 0 5.9-.1L34 7.5" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="31.5" cy="7" r="3" fill="#00D5FF"/></svg></span>
-      <span><b>VERITY<span>AGENT</span></b><small>CREATIVE TOOLS</small></span>
+      <span class="brand-icon"><img class="brand-symbol" src="{{ url_for('static', filename='img/verityagent-symbol-primary.svg') }}" alt=""></span>
+      <span class="brand-copy">
+        <img class="brand-lockup" src="{{ url_for('static', filename='img/verityagent-lockup-dark.svg') }}" alt="VerityAgent">
+        <small>CREATIVE TOOLS</small>
+      </span>
     </a>
     <p class="sidebar-label">WORKSPACE</p>
     <nav class="navigation" aria-label="Workspace navigation">
@@ -161,7 +164,7 @@
         </div>
       </section>
       <section class="privacy" id="privacy"><span class="privacy-icon"><svg viewBox="0 0 28 28"><path d="M14 3 23 7v6c0 5-3.3 9-9 12-5.7-3-9-7-9-12V7l9-4Z"/><path d="m10 14 2.5 2.5L18 11"/></svg></span><div><small>PRIVACY BY DESIGN</small><h3>Your image is yours. Full stop.</h3><p>Cutout Studio runs as a local web app. Your images are sent only to the Python server you start, processed in memory, and not saved to an application gallery.</p></div><span class="local-tag"><i></i> NO CLOUD UPLOADS<br><b>LOCAL PROCESSING</b></span></section>
-      <footer class="footer"><a href="#"><b>V.</b> VERITYAGENT</a><span>Designed for sharper creative workflows.</span><small>CUTOUT STUDIO · 2026</small></footer>
+      <footer class="footer"><a class="footer-brand" href="#" aria-label="VerityAgent"><img class="footer-logo" src="{{ url_for('static', filename='img/verityagent-lockup-dark.svg') }}" alt="VerityAgent"></a><span>Designed for sharper creative workflows.</span><small>CUTOUT STUDIO · 2026</small></footer>
     </div>
   </main>
 </div>
