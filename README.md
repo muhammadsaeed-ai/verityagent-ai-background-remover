@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/cutout-studio-banner.svg" alt="VerityAgent Cutout Studio — a premium local AI background-removal workspace" width="100%">
+  <img src="assets/readme-showcase.svg" alt="VerityAgent Cutout Studio — a premium local AI background-removal workspace" width="100%">
 </p>
 
 <h1 align="center">VerityAgent AI Background Remover</h1>
