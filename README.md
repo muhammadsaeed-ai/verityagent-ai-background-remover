@@ -81,7 +81,7 @@ Open **[http://127.0.0.1:5000](http://127.0.0.1:5000)** in your browser. The ser
 
 ## Use the studio
 
-1. **Upload a source image.** Drag it into the source panel or choose a file. PNG, JPG/JPEG, WEBP, BMP, and TIFF are accepted by the server, although browser preview support for TIFF depends on the browser.
+1. **Upload a source image.** Drag it into the source panel or choose a file. The web interface accepts PNG, JPG/JPEG, WEBP, and BMP. The server also accepts TIFF for direct API callers.
 2. **Choose a background finish.** Select transparent output, a solid color, or a custom background image.
 3. **Process the image.** The first request may take longer while the model is initialized.
 4. **Compare and export.** Switch between the original and processed preview, then choose **Export PNG** to save the result.
