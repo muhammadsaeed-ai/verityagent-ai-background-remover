@@ -11,7 +11,6 @@ from PIL import Image, ImageOps, UnidentifiedImageError
 from rembg import new_session, remove
 from werkzeug.exceptions import RequestEntityTooLarge
 
-APP_NAME = "VerityAgent Cutout Studio"
 MAX_UPLOAD_BYTES = 12 * 1024 * 1024
 MAX_PIXELS = 20_000_000
 ALLOWED_FORMATS = {"JPEG", "PNG", "WEBP", "BMP", "TIFF"}
@@ -24,20 +23,19 @@ logging.basicConfig(
 logger = logging.getLogger("cutout-studio")
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
-# Leave room for the source image and optional background image in one request.
+# Leave room for both the source and optional replacement background.
 app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_BYTES * 2 + 1024 * 1024
-app.config["MAX_IMAGE_PIXELS"] = MAX_PIXELS
 
 
 @lru_cache(maxsize=1)
 def get_model_session():
-    """Load the segmentation model once per server process, on first use."""
-    logger.info("Loading the rembg U2-Net model on first request.")
+    """Load U²-Net once per server process, on first inference."""
+    logger.info("Loading the rembg U²-Net model on first request.")
     return new_session("u2net")
 
 
 def decode_upload(storage, field_label: str) -> tuple[bytes, Image.Image]:
-    """Validate an uploaded image's actual format and dimensions."""
+    """Validate file content and dimensions rather than trusting the filename."""
     if storage is None or not storage.filename:
         raise ValueError(f"Choose a {field_label} image first.")
 
@@ -63,7 +61,6 @@ def decode_upload(storage, field_label: str) -> tuple[bytes, Image.Image]:
                 raise ValueError(
                     f"The {field_label} image is too large. Maximum is 20 megapixels."
                 )
-            # Honor EXIF rotation and normalize color/alpha before model inference.
             normalized = ImageOps.exif_transpose(opened).convert("RGBA")
             normalized.load()
         return raw, normalized
@@ -82,7 +79,7 @@ def as_png_bytes(image: Image.Image) -> bytes:
 
 
 def cover_background(background: Image.Image, size: tuple[int, int]) -> Image.Image:
-    """Resize and center-crop a background image to cover the foreground canvas."""
+    """Resize and center-crop a background image to cover the output canvas."""
     target_width, target_height = size
     scale = max(target_width / background.width, target_height / background.height)
     resized = background.resize(
@@ -106,50 +103,66 @@ def index():
 
 @app.get("/healthz")
 def healthz():
-    # This route deliberately does not load the model or download its weights.
+    # Deliberately avoids loading the model or downloading weights.
     return jsonify({"status": "ok", "service": "cutout-studio"})
 
 
 @app.post("/api/remove-background")
 def remove_background():
     try:
+        # This is a local-only tool: refuse browser-origin requests from other sites.
+        origin = request.headers.get("Origin")
+        host = request.host.lower()
+        allowed_hosts = {"127.0.0.1:5000", "localhost:5000"}
+        if host not in allowed_hosts:
+            return jsonify({"error": "Cutout Studio only accepts local requests."}), 403
+        if origin and origin.lower() not in {
+            "http://127.0.0.1:5000",
+            "http://localhost:5000",
+        }:
+            return jsonify({"error": "Cross-origin requests are not allowed."}), 403
+
         _, source = decode_upload(request.files.get("image"), "source")
         mode = (request.form.get("mode") or "transparent").strip().lower()
         if mode not in {"transparent", "color", "image"}:
             return jsonify({"error": "Choose a supported background mode."}), 400
 
-        # Feed a normalized PNG to the model so EXIF orientation and decoding
-        # behave consistently across the accepted upload formats.
-        foreground = remove(as_png_bytes(source), session=get_model_session())
-        try:
-            with Image.open(io.BytesIO(foreground)) as decoded:
-                foreground_rgba = decoded.convert("RGBA")
-                foreground_rgba.load()
-        except (UnidentifiedImageError, OSError) as exc:
-            logger.exception("The segmentation model returned an unreadable image.")
-            raise RuntimeError("The image model could not produce a valid result.") from exc
-
+        color = "#F4F1EB"
+        uploaded_background = None
         if mode == "color":
-            color = (request.form.get("color") or "#F4F1EB").strip()
+            color = (request.form.get("color") or color).strip()
             if not HEX_COLOR.fullmatch(color):
                 return jsonify({"error": "Enter a valid 6-digit HEX background color."}), 400
-            background = Image.new(
-                "RGBA", foreground_rgba.size, color.upper()
-            )
-            result = Image.alpha_composite(background, foreground_rgba)
         elif mode == "image":
             _, uploaded_background = decode_upload(
                 request.files.get("background"), "background"
             )
-            fitted_background = cover_background(
-                uploaded_background, foreground_rgba.size
-            )
-            result = Image.alpha_composite(fitted_background, foreground_rgba)
+
+        # Normalize orientation and color mode before model inference.
+        foreground_bytes = remove(
+            as_png_bytes(source), session=get_model_session()
+        )
+        try:
+            with Image.open(io.BytesIO(foreground_bytes)) as decoded:
+                foreground = decoded.convert("RGBA")
+                foreground.load()
+        except (UnidentifiedImageError, OSError) as exc:
+            raise RuntimeError(
+                "The image model could not produce a valid output."
+            ) from exc
+
+        if mode == "color":
+            background = Image.new("RGBA", foreground.size, color.upper())
+            result = Image.alpha_composite(background, foreground)
+        elif mode == "image":
+            assert uploaded_background is not None
+            fitted = cover_background(uploaded_background, foreground.size)
+            result = Image.alpha_composite(fitted, foreground)
         else:
-            result = foreground_rgba
+            result = foreground
 
         alpha = np.asarray(result.getchannel("A"), dtype=np.uint8)
-        fully_transparent_pct = float(np.count_nonzero(alpha == 0) / alpha.size * 100)
+        transparent_pct = float(np.count_nonzero(alpha == 0) / alpha.size * 100)
         payload = as_png_bytes(result)
 
         response = send_file(
@@ -163,7 +176,7 @@ def remove_background():
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["X-Output-Width"] = str(result.width)
         response.headers["X-Output-Height"] = str(result.height)
-        response.headers["X-Transparent-Pixels"] = f"{fully_transparent_pct:.1f}"
+        response.headers["X-Transparent-Pixels"] = f"{transparent_pct:.1f}"
         response.headers["X-Output-Format"] = "PNG"
         return response
 
@@ -193,5 +206,5 @@ def too_large(_error):
 
 
 if __name__ == "__main__":
-    # Local-only by default. Do not expose the development server directly to the internet.
+    # Local-only by default. Do not expose Flask's development server to the internet.
     app.run(host="127.0.0.1", port=5000, debug=False)
