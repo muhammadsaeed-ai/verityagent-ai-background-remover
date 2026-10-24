@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img" aria-labelledby="title desc">
+<title id="title">VerityAgent AI Background Remover — project showcase</title>
+<desc id="desc">A detailed neon-blue project graphic with a Python code editor, AI background-removal workflow, transparent cutout previews, features, and technology labels.</desc>
+<defs>
+  <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06182b"/><stop offset=".48" stop-color="#020b18"/><stop offset="1" stop-color="#03162a"/></linearGradient>
+  <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#008cff"/><stop offset=".53" stop-color="#00deff"/><stop offset="1" stop-color="#37a6ff"/></linearGradient>
+  <linearGradient id="bluePanel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08213a"/><stop offset="1" stop-color="#051322"/></linearGradient>
+  <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".13"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <linearGradient id="bottle" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8ffff"/><stop offset=".35" stop-color="#b8d7e7"/><stop offset=".63" stop-color="#eefaff"/><stop offset="1" stop-color="#337ea8"/></linearGradient>
+  <linearGradient id="portrait" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#16d8ff"/><stop offset="1" stop-color="#2755ea"/></linearGradient>
+  <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#2472a2" stroke-opacity=".12" stroke-width="1"/></pattern>
+  <pattern id="checks" width="28" height="28" patternUnits="userSpaceOnUse"><rect width="28" height="28" fill="#eef4f7"/><path d="M0 0H14V14H0ZM14 14H28V28H14Z" fill="#c9d5de"/></pattern>
+  <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="15" flood-color="#000" flood-opacity=".42"/></filter>
+  <filter id="cyanGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 6 3 0 6Z" fill="#00d5ff"/></marker>
+</defs>
+<rect width="1600" height="1160" rx="28" fill="url(#canvas)"/>
+<rect width="1600" height="1160" rx="28" fill="url(#grid)"/>
+<circle cx="1360" cy="335" r="360" fill="#008cff" opacity=".055"/>
+<circle cx="890" cy="90" r="265" fill="#00d5ff" opacity=".035"/>
+<path d="M0 109H1600" stroke="#13547b" stroke-width="1"/>
+<path d="M0 109H560L708 0" fill="none" stroke="#009ff1" stroke-opacity=".7" stroke-width="2"/>
+<path d="M0 108H420" stroke="url(#cyan)" stroke-width="2"/>
+<!-- brand header -->
+<g transform="translate(20 9) scale(0.56)">
+<defs>
+      <linearGradient id="va-left" x1="12" y1="21" x2="71" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3988FF"/><stop offset="0.43" stop-color="#1765F5"/><stop offset="0.78" stop-color="#07B9F4"/><stop offset="1" stop-color="#55F0F4"/></linearGradient>
+      <linearGradient id="va-right" x1="99" y1="10" x2="44" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#65F4FF"/><stop offset="0.22" stop-color="#20CFFB"/><stop offset="0.57" stop-color="#2878FF"/><stop offset="1" stop-color="#1744C9"/></linearGradient>
+      <linearGradient id="va-fold" x1="56" y1="60" x2="76" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#092F96" stop-opacity="0.05"/><stop offset="1" stop-color="#061B56" stop-opacity="0.8"/></linearGradient>
+      <radialGradient id="va-orb" cx="30%" cy="22%" r="80%"><stop offset="0" stop-color="#C2FCFF"/><stop offset="0.3" stop-color="#42E9FA"/><stop offset="0.72" stop-color="#12A8F6"/><stop offset="1" stop-color="#2364F6"/></radialGradient>
+      <linearGradient id="va-text-blue" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2D73FF"/><stop offset="1" stop-color="#12CFEA"/></linearGradient>
+    </defs><g transform="translate(26,20.5) scale(0.9166666666666666)"><path d="M14.7 18.8C20.2 14.6 28.1 16.2 32.2 23.1L59.3 67.4C63.0 73.4 69.1 77.2 76.2 79.2C72.2 87.4 63.7 92.0 55.5 88.7C51.3 87.0 47.8 82.7 44.8 77.8L12.5 29.8C9.6 25.4 10.4 22.1 14.7 18.8Z" fill="url(#va-left)"/>
+<path d="M37.2 29.8L61.5 68.7C64.4 73.1 69.3 76.6 76.2 79.2C72.9 86.0 67.4 89.9 61.0 90.1C54.4 88.0 50.8 82.6 47.9 77.7L28.9 48.2Z" fill="url(#va-fold)" opacity="0.68"/>
+<path d="M46.1 74.1C59.7 56.8 73.7 31.8 86.5 12.6C90.2 7.0 97.4 6.3 102.0 10.8C106.0 14.7 105.6 19.8 102.3 25.4C89.9 47.0 76.7 70.7 62.7 87.5C56.9 94.4 48.4 94.9 40.9 87.6C38.5 85.2 38.4 82.8 40.1 80.4C42.0 77.9 44.1 76.0 46.1 74.1Z" fill="url(#va-right)"/>
+<path d="M17.3 22.2C22.3 19.8 27.4 23.0 30.2 28.4L43.6 50.1" fill="none" stroke="#D7FFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.72"/>
+<path d="M58.8 68.7C69.4 53.6 81.0 32.6 91.1 16.4" fill="none" stroke="#D7FFFF" stroke-width="2.4" stroke-linecap="round" opacity="0.75"/>
+<circle cx="101.5" cy="10.5" r="7.2" fill="#123E97" opacity="0.35"/>
+<circle cx="100.8" cy="9.4" r="6.0" fill="url(#va-orb)"/>
+<circle cx="98.9" cy="7.6" r="1.7" fill="#D7FFFF" opacity="0.72"/></g><text x="166" y="95" font-family="Inter, Inter Display, Arial, sans-serif" font-size="64" font-weight="750" letter-spacing="-2.9"><tspan fill="#FFFFFF">Verity</tspan><tspan fill="url(#va-text-blue)">Agent</tspan></text></g><text x="111" y="86" fill="#b4cce1" font-family="Arial,Helvetica,sans-serif" font-size="16">Build · Automate · Innovate</text>
+<text x="1554" y="49" text-anchor="end" fill="#d6eaff" font-family="Arial,Helvetica,sans-serif" font-size="20">Python AI Projects  |  Project <tspan fill="#00d5ff" font-size="26" font-weight="700">#04</tspan></text>
+<g transform="translate(46 139)">
+  <!-- code editor panel -->
+  <rect width="730" height="876" rx="15" fill="url(#bluePanel)" stroke="#008dc9" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect width="730" height="49" rx="15" fill="#102a48"/>
+  <path d="M0 49H730" stroke="#09679a"/>
+  <circle cx="28" cy="25" r="9" fill="#ff5365"/><circle cx="56" cy="25" r="9" fill="#ffd23c"/><circle cx="84" cy="25" r="9" fill="#35d86e"/>
+  <rect x="113" y="12" width="24" height="24" rx="6" fill="url(#cyan)"/>
+  <text x="125" y="29" text-anchor="middle" fill="#04203a" font-family="Arial,sans-serif" font-weight="700" font-size="12">Py</text>
+  <text x="151" y="30" fill="#e4f3ff" font-family="monospace" font-size="15">background_remover.py</text>
+  <text x="702" y="29" text-anchor="end" fill="#70c8ed" font-family="monospace" font-size="9">LOCAL AI</text>
+  <rect x="1" y="50" width="728" height="825" fill="#051222" opacity=".58"/>
+  <path d="M56 64V836" stroke="#123c5c"/>
+  <g font-family="monospace" font-size="15">
+    <g fill="#5d8db8" text-anchor="end">
+      <text x="43" y="84">01</text><text x="43" y="111">02</text><text x="43" y="138">03</text><text x="43" y="165">04</text><text x="43" y="192">05</text>
+      <text x="43" y="235">06</text><text x="43" y="262">07</text><text x="43" y="289">08</text><text x="43" y="316">09</text><text x="43" y="343">10</text>
+      <text x="43" y="386">11</text><text x="43" y="413">12</text><text x="43" y="440">13</text><text x="43" y="467">14</text><text x="43" y="494">15</text>
+      <text x="43" y="537">16</text><text x="43" y="564">17</text><text x="43" y="591">18</text><text x="43" y="618">19</text><text x="43" y="645">20</text>
+      <text x="43" y="688">21</text><text x="43" y="715">22</text><text x="43" y="742">23</text><text x="43" y="769">24</text><text x="43" y="796">25</text>
+    </g>
+    <g fill="#d9edff">
+      <text x="72" y="84"><tspan fill="#cf9bff">from</tspan> background_remover <tspan fill="#cf9bff">import</tspan> (</text>
+      <text x="92" y="111">remove_background,</text>
+      <text x="92" y="138">replace_background_with_solid_color,</text>
+      <text x="92" y="165">save_image,</text>
+      <text x="72" y="192">)</text>
+      <text x="72" y="235" fill="#57df84"># 01 · isolate the subject</text>
+      <text x="72" y="262">foreground = <tspan fill="#54dfff">remove_background</tspan>(</text>
+      <text x="92" y="289" fill="#ffdf79">"product-photo.jpg"</text>
+      <text x="72" y="316">)</text>
+      <text x="72" y="343" fill="#728da6"># alpha channel preserved</text>
+      <text x="72" y="386" fill="#57df84"># 02 · choose a new finish</text>
+      <text x="72" y="413">result = <tspan fill="#54dfff">replace_background_with_solid_color</tspan>(</text>
+      <text x="92" y="440">foreground, <tspan fill="#ffdf79">"#00C8FF"</tspan></text>
+      <text x="72" y="467">)</text>
+      <text x="72" y="494" fill="#728da6"># or use a custom background image</text>
+      <text x="72" y="537" fill="#57df84"># 03 · export crisp PNG</text>
+      <text x="72" y="564"><tspan fill="#54dfff">save_image</tspan>(</text>
+      <text x="92" y="591">result, <tspan fill="#ffdf79">"outputs/product.png"</tspan></text>
+      <text x="72" y="618">)</text>
+      <text x="72" y="645" fill="#728da6"># local processing · no API key</text>
+      <text x="72" y="688"><tspan fill="#cf9bff">if</tspan> output_path.exists():</text>
+      <text x="92" y="715"><tspan fill="#54dfff">print</tspan>(<tspan fill="#ffdf79">"Background removed."</tspan>)</text>
+      <text x="72" y="742" fill="#57df84"># ready for your own workflow</text>
+      <text x="72" y="769"><tspan fill="#54dfff">print</tspan>(<tspan fill="#ffdf79">"Export complete."</tspan>)</text>
+      <text x="72" y="796" fill="#57df84"># powered by VerityAgent</text>
+    </g>
+  </g>
+  <rect x="69" y="815" width="631" height="38" rx="7" fill="#071f32" stroke="#135176"/>
+  <circle cx="88" cy="834" r="4" fill="#00d5ff"/>
+  <text x="103" y="839" fill="#9dcbe6" font-family="monospace" font-size="11">PYTHON  /  REMBG  /  PILLOW  /  NUMPY</text>
+  <text x="695" y="839" text-anchor="end" fill="#00d5ff" font-family="monospace" font-size="11">RUN →</text>
+</g>
+<!-- right showcase -->
+<g transform="translate(810 139)">
+  <g>
+    <rect width="191" height="30" rx="15" fill="#062a42" stroke="#009fdb"/>
+    <circle cx="16" cy="15" r="4" fill="#00d5ff"/>
+    <text x="29" y="20" fill="#00d5ff" font-family="monospace" font-size="12" font-weight="700" letter-spacing="1.2">PROJECT #04</text>
+  </g>
+  <text x="0" y="92" fill="#f4f8ff" font-family="Arial,Helvetica,sans-serif" font-size="55" font-weight="700" letter-spacing="-1.7">AI Background</text>
+  <text x="0" y="151" fill="url(#cyan)" font-family="Arial,Helvetica,sans-serif" font-size="65" font-weight="700" letter-spacing="-1.7">Remover</text>
+  <text x="2" y="189" fill="#c7e4f8" font-family="Arial,Helvetica,sans-serif" font-size="22">Remove, replace, and transform images</text>
+  <text x="2" y="219" fill="#c7e4f8" font-family="Arial,Helvetica,sans-serif" font-size="22">with a few lines of Python.</text>
+  <!-- capabilities -->
+  <g transform="translate(0 244)" font-family="Arial,Helvetica,sans-serif" fill="#e4f3ff" font-size="13" text-anchor="middle">
+    <g transform="translate(0 0)"><rect width="76" height="65" rx="12" fill="#071d32" stroke="#009fdf"/><path d="M38 12 54 18v13c0 10-7 17-16 21-9-4-16-11-16-21V18l16-6Z" stroke="#70e5ff" stroke-width="2.5" fill="none"/><path d="m31 31 5 5 10-12" stroke="#70e5ff" stroke-width="2.5" fill="none"/><text x="38" y="86">AI remove</text><text x="38" y="103">backgrounds</text></g>
+    <g transform="translate(124 0)"><rect width="76" height="65" rx="12" fill="#071d32" stroke="#009fdf"/><rect x="21" y="15" width="34" height="33" rx="3" stroke="#70e5ff" stroke-width="2.5" fill="none"/><circle cx="31" cy="25" r="3" fill="#70e5ff"/><path d="m24 43 10-10 7 6 6-8 8 12" stroke="#70e5ff" stroke-width="2.5" fill="none"/><text x="38" y="86">Transparent</text><text x="38" y="103">PNG export</text></g>
+    <g transform="translate(248 0)"><rect width="76" height="65" rx="12" fill="#071d32" stroke="#009fdf"/><circle cx="38" cy="32" r="19" fill="none" stroke="#70e5ff" stroke-width="2.5"/><path d="M38 13a19 19 0 0 1 0 38Z" fill="#00bfea" opacity=".65"/><circle cx="31" cy="28" r="2" fill="#70e5ff"/><circle cx="39" cy="22" r="2" fill="#70e5ff"/><circle cx="45" cy="34" r="2" fill="#70e5ff"/><text x="38" y="86">Solid color</text><text x="38" y="103">replacement</text></g>
+    <g transform="translate(372 0)"><rect width="76" height="65" rx="12" fill="#071d32" stroke="#009fdf"/><rect x="20" y="15" width="36" height="34" rx="3" fill="none" stroke="#70e5ff" stroke-width="2.5"/><circle cx="44" cy="24" r="4" fill="#70e5ff"/><path d="m23 44 10-11 8 6 5-5 7 10" stroke="#70e5ff" stroke-width="2.5" fill="none"/><text x="38" y="86">Custom image</text><text x="38" y="103">backgrounds</text></g>
+  </g>
+  <!-- Workflow section -->
+  <g transform="translate(0 372)">
+    <text x="0" y="0" fill="#76cde9" font-family="monospace" font-size="11" letter-spacing="1.5">THE WORKFLOW</text>
+    <path d="M0 14H448" stroke="#155073"/>
+    <!-- original card -->
+    <g transform="translate(0 28)">
+      <rect width="132" height="128" rx="10" fill="#071624" stroke="#176b94"/>
+      <rect x="1" y="1" width="130" height="101" rx="9" fill="#273b4b"/>
+      <rect x="1" y="1" width="130" height="101" rx="9" fill="url(#shine)"/>
+      <circle cx="37" cy="27" r="33" fill="#8eaaba" opacity=".12"/>
+      <path d="M0 77 24 59l19 8 30-24 26 14 33-25v69H0Z" fill="#9cacb7" opacity=".27"/>
+      <ellipse cx="68" cy="83" rx="30" ry="7" fill="#001120" opacity=".5"/>
+      <g transform="translate(45 25) rotate(-12 22 35)"><rect x="8" y="10" width="31" height="58" rx="8" fill="url(#bottle)" stroke="#d9f5ff"/><rect x="16" y="2" width="15" height="12" rx="3" fill="#bbd8e7"/><path d="M13 37h21m-21 8h21m-21 8h16" stroke="#347da4" stroke-width="1.7"/></g>
+      <rect y="102" width="132" height="25" rx="0" fill="#06172a"/><text x="66" y="119" text-anchor="middle" fill="#d7ebfa" font-family="monospace" font-size="10">ORIGINAL</text>
+    </g>
+    <path d="M137 95h19m-7-6 7 6-7 6" fill="none" stroke="#00d5ff" stroke-width="2" marker-end="url(#arrow)"/>
+    <!-- transparent card -->
+    <g transform="translate(159 28)">
+      <rect width="132" height="128" rx="10" fill="#071624" stroke="#176b94"/>
+      <rect x="1" y="1" width="130" height="101" rx="9" fill="url(#checks)"/>
+      <ellipse cx="67" cy="83" rx="28" ry="6" fill="#4f6c7c" opacity=".2"/>
+      <g transform="translate(44 25) rotate(-12 22 35)"><rect x="8" y="10" width="31" height="58" rx="8" fill="url(#bottle)" stroke="#8cb8ce"/><rect x="16" y="2" width="15" height="12" rx="3" fill="#bbd8e7"/><path d="M13 37h21m-21 8h21m-21 8h16" stroke="#347da4" stroke-width="1.7"/></g>
+      <rect y="102" width="132" height="25" fill="#06172a"/><text x="66" y="119" text-anchor="middle" fill="#d7ebfa" font-family="monospace" font-size="10">CUTOUT <tspan fill="#00d5ff">✓</tspan></text>
+    </g>
+    <path d="M296 95h19m-7-6 7 6-7 6" fill="none" stroke="#00d5ff" stroke-width="2" marker-end="url(#arrow)"/>
+    <!-- replacement scene card -->
+    <g transform="translate(318 28)">
+      <rect width="132" height="128" rx="10" fill="#071624" stroke="#008bda"/>
+      <rect x="1" y="1" width="130" height="101" rx="9" fill="url(#cyan)"/>
+      <circle cx="99" cy="25" r="22" fill="#b9fbff" opacity=".25"/>
+      <path d="M0 74 26 53l18 14 30-30 20 20 37-28v73H0Z" fill="#063c97" opacity=".46"/>
+      <ellipse cx="68" cy="83" rx="28" ry="6" fill="#001a51" opacity=".3"/>
+      <g transform="translate(44 25) rotate(-12 22 35)"><rect x="8" y="10" width="31" height="58" rx="8" fill="url(#bottle)" stroke="#f4ffff"/><rect x="16" y="2" width="15" height="12" rx="3" fill="#bbd8e7"/><path d="M13 37h21m-21 8h21m-21 8h16" stroke="#347da4" stroke-width="1.7"/></g>
+      <rect y="102" width="132" height="25" fill="#06172a"/><text x="66" y="119" text-anchor="middle" fill="#d7ebfa" font-family="monospace" font-size="10">NEW BACKGROUND</text>
+    </g>
+  </g>
+  <g transform="translate(0 574)">
+    <rect width="450" height="91" rx="12" fill="#071b2d" stroke="#0078b8"/>
+    <rect x="0" y="0" width="4" height="91" rx="2" fill="#00d5ff"/>
+    <circle cx="42" cy="45" r="20" fill="#0a2f4a" stroke="#176c91"/>
+    <path d="M42 29v30M28 44h28M32 34l20 20m0-20L32 54" stroke="#66ddff" stroke-width="1.2" opacity=".65"/>
+    <text x="77" y="34" fill="#eff8ff" font-family="Arial,sans-serif" font-size="15" font-weight="700">Built for real creative workflows</text>
+    <text x="77" y="56" fill="#b7d3e7" font-family="Arial,sans-serif" font-size="12">CLI for developers. Visual studio for creators.</text>
+    <text x="77" y="74" fill="#72c6ea" font-family="monospace" font-size="9">LOCAL FIRST · OPEN SOURCE · NO API KEY</text>
+  </g>
+</g>
+<!-- bottom footer -->
+<path d="M0 1042H1600" stroke="#08628c" stroke-width="1.3"/>
+<rect x="0" y="1043" width="1600" height="117" fill="#041122" opacity=".78"/>
+<g transform="translate(44 1069)">
+  <text x="0" y="16" fill="#d7eaff" font-family="Arial,sans-serif" font-size="14" font-weight="700">BUILT WITH</text>
+  <g transform="translate(108 -5)">
+    <rect width="37" height="37" rx="8" fill="#0b2b45" stroke="#145b7e"/><path d="M10 10h9a5 5 0 0 1 5 5v13H15a5 5 0 0 1-5-5Z" fill="#f5d85d"/><path d="M19 10h9a5 5 0 0 1 5 5v13h-9a5 5 0 0 1-5-5Z" fill="#2f9de4"/><text x="51" y="23" fill="#e0efff" font-family="Arial,sans-serif" font-size="14">Python</text>
+    <path d="M119 2V32" stroke="#174866"/><text x="135" y="23" fill="#e0efff" font-family="Arial,sans-serif" font-size="14">rembg</text><path d="M194 2V32" stroke="#174866"/>
+    <rect x="207" y="3" width="28" height="28" rx="5" fill="#0b6ed0"/><path d="M213 23V10h14v13" stroke="#fff" stroke-width="2" fill="none"/><text x="244" y="23" fill="#e0efff" font-family="Arial,sans-serif" font-size="14">Pillow</text>
+    <path d="M305 2V32" stroke="#174866"/><path d="M325 8 338 2 351 8 351 23 338 30 325 23Z" fill="none" stroke="#50d7ff" stroke-width="2"/><text x="361" y="23" fill="#e0efff" font-family="Arial,sans-serif" font-size="14">NumPy</text>
+  </g>
+  <path d="M550 -6V42" stroke="#174866"/>
+  <text x="575" y="8" fill="#d7eaff" font-family="Arial,sans-serif" font-size="14" font-weight="700">VerityAgent AI Mini Projects</text>
+  <text x="575" y="30" fill="#82b5d4" font-family="Arial,sans-serif" font-size="12">Project #04 · Background removal made visual.</text>
+</g>
+<path d="M0 0V48" stroke="#174866"/><g transform="translate(1276 1057) scale(0.37)">
+<defs>
+      <linearGradient id="footer-va-left" x1="12" y1="21" x2="71" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3988FF"/><stop offset="0.43" stop-color="#1765F5"/><stop offset="0.78" stop-color="#07B9F4"/><stop offset="1" stop-color="#55F0F4"/></linearGradient>
+      <linearGradient id="footer-va-right" x1="99" y1="10" x2="44" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#65F4FF"/><stop offset="0.22" stop-color="#20CFFB"/><stop offset="0.57" stop-color="#2878FF"/><stop offset="1" stop-color="#1744C9"/></linearGradient>
+      <linearGradient id="footer-va-fold" x1="56" y1="60" x2="76" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#092F96" stop-opacity="0.05"/><stop offset="1" stop-color="#061B56" stop-opacity="0.8"/></linearGradient>
+      <radialGradient id="footer-va-orb" cx="30%" cy="22%" r="80%"><stop offset="0" stop-color="#C2FCFF"/><stop offset="0.3" stop-color="#42E9FA"/><stop offset="0.72" stop-color="#12A8F6"/><stop offset="1" stop-color="#2364F6"/></radialGradient>
+      <linearGradient id="footer-va-text-blue" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2D73FF"/><stop offset="1" stop-color="#12CFEA"/></linearGradient>
+    </defs><g transform="translate(26,20.5) scale(0.9166666666666666)"><path d="M14.7 18.8C20.2 14.6 28.1 16.2 32.2 23.1L59.3 67.4C63.0 73.4 69.1 77.2 76.2 79.2C72.2 87.4 63.7 92.0 55.5 88.7C51.3 87.0 47.8 82.7 44.8 77.8L12.5 29.8C9.6 25.4 10.4 22.1 14.7 18.8Z" fill="url(#footer-va-left)"/>
+<path d="M37.2 29.8L61.5 68.7C64.4 73.1 69.3 76.6 76.2 79.2C72.9 86.0 67.4 89.9 61.0 90.1C54.4 88.0 50.8 82.6 47.9 77.7L28.9 48.2Z" fill="url(#footer-va-fold)" opacity="0.68"/>
+<path d="M46.1 74.1C59.7 56.8 73.7 31.8 86.5 12.6C90.2 7.0 97.4 6.3 102.0 10.8C106.0 14.7 105.6 19.8 102.3 25.4C89.9 47.0 76.7 70.7 62.7 87.5C56.9 94.4 48.4 94.9 40.9 87.6C38.5 85.2 38.4 82.8 40.1 80.4C42.0 77.9 44.1 76.0 46.1 74.1Z" fill="url(#footer-va-right)"/>
+<path d="M17.3 22.2C22.3 19.8 27.4 23.0 30.2 28.4L43.6 50.1" fill="none" stroke="#D7FFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.72"/>
+<path d="M58.8 68.7C69.4 53.6 81.0 32.6 91.1 16.4" fill="none" stroke="#D7FFFF" stroke-width="2.4" stroke-linecap="round" opacity="0.75"/>
+<circle cx="101.5" cy="10.5" r="7.2" fill="#123E97" opacity="0.35"/>
+<circle cx="100.8" cy="9.4" r="6.0" fill="url(#footer-va-orb)"/>
+<circle cx="98.9" cy="7.6" r="1.7" fill="#D7FFFF" opacity="0.72"/></g><text x="166" y="95" font-family="Inter, Inter Display, Arial, sans-serif" font-size="64" font-weight="750" letter-spacing="-2.9"><tspan fill="#FFFFFF">Verity</tspan><tspan fill="url(#footer-va-text-blue)">Agent</tspan></text></g>
+<text x="44" y="1136" fill="#4d8cb2" font-family="monospace" font-size="11">#Python   #ArtificialIntelligence   #ComputerVision   #ImageProcessing   #MachineLearning   #VerityAgent</text>
+<text x="1550" y="1136" text-anchor="end" fill="#5ba5cf" font-family="monospace" font-size="11">01 / 04</text>
+</svg>
