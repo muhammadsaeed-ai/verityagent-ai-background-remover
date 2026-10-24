@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0e15">
+<meta name="description" content="VerityAgent Cutout Studio: private local AI background removal with transparent PNG and custom background export.">
+<title>Cutout Studio — VerityAgent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="#" aria-label="VerityAgent Cutout Studio">
+      <span class="brand-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 8.5 17 31a3.25 3.25 0 0 0 5.9-.1L34 7.5" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="31.5" cy="7" r="3" fill="#9EF5CE"/></svg></span>
+      <span><b>VERITY<span>AGENT</span></b><small>CREATIVE TOOLS</small></span>
+    </a>
+    <p class="sidebar-label">WORKSPACE</p>
+    <nav class="navigation" aria-label="Workspace navigation">
+      <a class="nav-link active" href="#studio"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg><span>Studio</span><i></i></a>
+      <a class="nav-link" href="#workflow"><svg viewBox="0 0 24 24"><path d="M4 7h6m4 0h6M7 4v6m10 4v6m-3-3h6M4 17h7"/><circle cx="13" cy="7" r="3"/><circle cx="11" cy="17" r="3"/></svg><span>How it works</span></a>
+      <a class="nav-link" href="#privacy"><svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 4.5-2.6 7.7-7 10-4.4-2.3-7-5.5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Privacy & safety</span></a>
+    </nav>
+    <div class="sidebar-spacer"></div>
+    <div class="local-card"><span class="lock-icon"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3"/></svg></span><div><b>Your images stay local</b><p>Processed by the model running on this machine.</p></div><i class="status-led"></i></div>
+    <div class="sidebar-foot"><span>CUTOUT STUDIO <b>01</b></span><span>Built by VerityAgent</span></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar"><div class="breadcrumb"><span>Creative tools</span><b>›</b><strong>Background remover</strong></div><div class="top-actions"><span class="model-chip"><i></i> U²-NET MODEL</span><span class="avatar">V</span></div></header>
+    <div class="page">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><i></i> IMAGE LAB <span>/</span> BACKGROUND REMOVAL</div>
+          <h1>Keep the subject.<br><em>Lose everything else.</em></h1>
+          <p>Clean cutouts, ready in moments. Let local AI separate your subject, then export it transparent or give it a new scene.</p>
+          <div class="hero-proof"><span>✓ No API key</span><i></i><span>✓ PNG export</span><i></i><span>✓ Private by design</span></div>
+        </div>
+        <div class="hero-art" aria-label="Decorative illustration of a subject cutout" role="img">
+          <div class="art-grid"></div><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="art-halo"></div>
+          <svg class="art-subject" viewBox="0 0 250 230" fill="none" aria-hidden="true">
+            <defs><linearGradient id="body" x1="45" y1="32" x2="194" y2="202" gradientUnits="userSpaceOnUse"><stop stop-color="#F6F5EF"/><stop offset=".54" stop-color="#A4B7B2"/><stop offset="1" stop-color="#506B69"/></linearGradient><linearGradient id="side" x1="151" y1="52" x2="202" y2="185" gradientUnits="userSpaceOnUse"><stop stop-color="#B9EAD8"/><stop offset="1" stop-color="#567B79"/></linearGradient></defs>
+            <ellipse cx="124" cy="203" rx="73" ry="12" fill="#9EF5CE" fill-opacity=".12"/>
+            <path d="M67 66c-4-15 8-29 23-28l57 7c13 2 23 14 22 28l-7 76c-1 13-12 23-25 21l-58-8c-14-2-23-14-22-28l10-68Z" fill="url(#body)" stroke="#EAF7F1" stroke-opacity=".65" stroke-width="1.5"/>
+            <path d="m147 45 26 20c5 4 8 11 7 17l-7 67c-1 12-8 20-19 21l-2-1 7-76c1-12-5-22-16-27l-23-12 27-9Z" fill="url(#side)" fill-opacity=".92"/>
+            <path d="M87 38c-1-11 6-19 17-18l21 3c10 1 16 9 15 19l-2 9-48-7-3-6Z" fill="#CBD6D0" stroke="#EAF7F1" stroke-opacity=".7"/>
+            <path d="m90 79 51 6m-54 12 49 6m-51 11 45 5" stroke="#344A4B" stroke-opacity=".38" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="101" cy="60" r="4" fill="#273A3A"/><circle cx="138" cy="65" r="4" fill="#273A3A"/><path d="M103 73c8 7 17 8 25 2" stroke="#324D4B" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="m54 42-9-8m20 2-2-12m119 26 11-6m-4 18 13 2" stroke="#9EF5CE" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+            <circle cx="39" cy="63" r="3" fill="#9EF5CE"/><circle cx="198" cy="37" r="4" fill="#9EF5CE"/><circle cx="202" cy="117" r="2.5" fill="#B6A6FF"/>
+          </svg>
+          <div class="art-tag art-tag-top"><i></i> SUBJECT DETECTED</div><div class="art-tag art-tag-bottom">⌁ EDGE AWARE <b>AI</b></div><div class="art-mark">+</div><div class="art-caption">01 <span>PRECISION CUTOUT ENGINE</span></div>
+        </div>
+      </section>
+
+      <section class="studio" id="studio">
+        <div class="section-head"><div><div class="section-index">01 <span>/</span> WORKSPACE</div><h2>The cutout desk</h2></div><span class="ready-chip"><i></i> READY WHEN YOU ARE</span></div>
+        <div class="studio-grid">
+          <div class="preview-grid">
+            <article class="surface source-panel">
+              <div class="panel-head"><div class="panel-title"><span class="panel-letter">A</span><div><h3>Source image</h3><p>Your original, untouched</p></div></div><span class="micro-label">INPUT</span></div>
+              <div class="upload-zone" id="uploadZone" tabindex="0" role="button" aria-label="Choose an image or drop it here">
+                <input id="sourceInput" type="file" accept="image/png,image/jpeg,image/webp,image/bmp" hidden>
+                <div class="upload-icon"><svg viewBox="0 0 52 52" fill="none" aria-hidden="true"><rect x="8" y="8" width="36" height="36" rx="9" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity=".5"/><path d="M26 34V18m0 0-6 6m6-6 6 6M17 34h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><i></i></div>
+                <h4>Drop your image here</h4><p>or <span>browse files</span> to get started</p>
+                <div class="file-types"><b>PNG</b><b>JPG</b><b>WEBP</b><i></i><span>UP TO 12 MB</span></div>
+                <div class="upload-privacy">⌑ &nbsp;Your files never leave this app</div>
+              </div>
+              <div class="loaded-source" id="loadedSource" hidden>
+                <div class="source-image-wrap"><img id="sourceImage" alt="Selected original image"><button type="button" id="removeSource" class="remove-file" aria-label="Remove selected image">×</button><span class="image-state"><i></i> SOURCE LOADED</span></div>
+                <div class="file-info"><span class="file-icon">IMG</span><div><b id="sourceName">image.png</b><small id="sourceDetails">Ready to process</small></div><button id="replaceSource" class="small-button" type="button">Replace</button></div>
+              </div>
+            </article>
+
+            <article class="surface result-panel">
+              <div class="panel-head"><div class="panel-title"><span class="panel-letter green">B</span><div><h3>Final result</h3><p id="resultSubtitle">Your cleaned-up image will appear here</p></div></div><div class="result-tools"><span class="png-tag">PNG <b>↗</b></span><button class="view-button" type="button" id="viewToggle" aria-label="Switch between original and result" title="Compare original/result" disabled><svg viewBox="0 0 24 24"><path d="M4 7h16M4 17h16M7 4v16m10-16v16"/></svg></button></div></div>
+              <div class="result-stage checkerboard" id="resultStage">
+                <div class="empty-result" id="emptyResult"><div class="empty-picture"><svg viewBox="0 0 70 70" fill="none"><rect x="13" y="11" width="44" height="48" rx="6" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="27" r="4" stroke="currentColor" stroke-width="1.4"/><path d="m17 50 12-12 9 8 7-7 11 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>Your canvas is clear</b><span>Upload an image, choose your finish,<br>then let the AI do the hard part.</span></div>
+                <img id="outputImage" alt="Background-removed output" hidden>
+                <div class="compare-chip" id="compareChip" hidden><i></i><span id="compareLabel">FINAL OUTPUT</span></div><div class="stage-dimensions" id="stageDimensions" hidden>— × — PX</div>
+              </div>
+              <div class="result-foot"><span class="result-status"><i id="resultStatusRing"></i><span id="resultStatus">Waiting for your first image</span></span><span id="resultMeta">OUTPUT · PNG</span></div>
+            </article>
+          </div>
+
+          <aside class="surface settings-panel">
+            <div class="panel-head"><div class="panel-title"><span class="sliders-icon"><svg viewBox="0 0 24 24"><path d="M4 7h7m4 0h5M4 17h3m4 0h9M11 4v6M7 14v6m7-16v6"/></svg></span><div><h3>Output settings</h3><p>Make it yours</p></div></div><span class="micro-label">03</span></div>
+            <div class="settings-body">
+              <div class="field-label"><span>01</span> Background finish</div>
+              <div class="mode-options" aria-label="Background finish">
+                <button type="button" class="mode-option selected" data-mode="transparent" aria-pressed="true"><span class="mode-visual transparency"><i></i><i></i><i></i><i></i></span><b>Transparent</b><small>Clean cutout</small><span class="selected-check">✓</span></button>
+                <button type="button" class="mode-option" data-mode="color" aria-pressed="false"><span class="mode-visual solid"><i></i></span><b>Solid color</b><small>Brand-ready</small><span class="selected-check">✓</span></button>
+                <button type="button" class="mode-option" data-mode="image" aria-pressed="false"><span class="mode-visual scene"><i></i><b></b></span><b>New image</b><small>New scene</small><span class="selected-check">✓</span></button>
+              </div>
+
+              <div class="mode-fields" id="colorFields" hidden>
+                <div class="field-label"><span>02</span> Pick a color</div>
+                <div class="color-control"><label for="backgroundColor" class="color-swatch"><input type="color" id="backgroundColor" value="#f4f1eb" aria-label="Choose background color"></label><div class="color-text"><small>HEX COLOR</small><input id="colorHex" value="#F4F1EB" maxlength="7" spellcheck="false" aria-label="Background HEX color"></div><button id="resetColor" type="button" class="reset-color" aria-label="Reset color">↺</button></div>
+                <div class="color-presets" aria-label="Suggested colors"><button type="button" data-color="#F4F1EB" style="--swatch:#F4F1EB" aria-label="Warm ivory"></button><button type="button" data-color="#E0F0EA" style="--swatch:#E0F0EA" aria-label="Mint mist"></button><button type="button" data-color="#DFE7F8" style="--swatch:#DFE7F8" aria-label="Soft blue"></button><button type="button" data-color="#D9C6B4" style="--swatch:#D9C6B4" aria-label="Sand"></button><button type="button" data-color="#242A35" style="--swatch:#242A35" aria-label="Graphite"></button><button type="button" data-color="#C5AEF5" style="--swatch:#C5AEF5" aria-label="Lavender"></button></div>
+              </div>
+
+              <div class="mode-fields" id="imageFields" hidden><div class="field-label"><span>02</span> Your new background</div><input type="file" id="backgroundInput" accept="image/png,image/jpeg,image/webp,image/bmp" hidden><button type="button" id="backgroundDrop" class="background-drop"><span class="background-upload">↑</span><span><b id="backgroundFileName">Upload background</b><small id="backgroundFileDetails">PNG, JPG or WEBP · max 12 MB</small></span><strong>↗</strong></button><p class="field-note">Your background is automatically cropped to fit the subject image.</p></div>
+
+              <div class="settings-rule"></div>
+              <div class="field-label"><span>03</span> Processing engine</div>
+              <div class="engine-card"><span class="engine-spark">✳</span><div><b>rembg · U²-Net</b><small>AI segmentation · local inference</small></div><span class="engine-ready">READY</span></div>
+              <p class="engine-note"><i></i> Model loads on first process</p>
+              <div class="settings-rule"></div>
+              <div class="export-row"><div><small>EXPORT FORMAT</small><b>PNG · Lossless</b></div><span>↗</span></div><p class="export-note">Preserves transparency and original image dimensions.</p>
+              <div class="action-stack"><button type="button" id="processButton" class="primary-button" disabled><span id="processIcon">✳</span><b id="processLabel">Remove background</b><span>↗</span></button><button type="button" id="downloadButton" class="secondary-button" disabled><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19v2h16v-2"/></svg><b>Export PNG</b><span>↓</span></button></div>
+              <p class="settings-footnote">⌑ &nbsp;Images are processed by your local server. No third-party upload.</p>
+            </div>
+          </aside>
+        </div>
+        <div id="liveMessage" class="live-message" role="status" aria-live="polite" hidden></div>
+      </section>
+
+      <section class="workflow" id="workflow"><div class="section-head"><div><div class="section-index">02 <span>/</span> THE PROCESS</div><h2>Three steps. Zero friction.</h2></div><p>From raw image to ready-to-use asset.</p></div>
+        <div class="workflow-grid">
+          <article class="workflow-card"><div><span>01</span><svg viewBox="0 0 40 40"><rect x="7" y="6" width="26" height="28" rx="5"/><circle cx="16" cy="16" r="3"/><path d="m10 29 8-8 5 4 4-4 4 5"/></svg></div><h3>Bring your image</h3><p>Upload a product shot, portrait, or visual asset in a familiar format.</p></article>
+          <article class="workflow-card"><div><span>02</span><svg viewBox="0 0 40 40"><path d="m20 5 3.6 10.4L34 19l-10.4 3.6L20 33l-3.6-10.4L6 19l10.4-3.6L20 5Z"/></svg></div><h3>Let AI isolate it</h3><p>U²-Net estimates the foreground mask and preserves a transparent edge.</p></article>
+          <article class="workflow-card"><div><span>03</span><svg viewBox="0 0 40 40"><path d="M9 27v5h22v-5M20 5v20m0 0 7-7m-7 7-7-7"/></svg></div><h3>Export your finish</h3><p>Keep the alpha channel or composite a new backdrop, then download PNG.</p></article>
+        </div>
+      </section>
+      <section class="privacy" id="privacy"><span class="privacy-icon"><svg viewBox="0 0 28 28"><path d="M14 3 23 7v6c0 5-3.3 9-9 12-5.7-3-9-7-9-12V7l9-4Z"/><path d="m10 14 2.5 2.5L18 11"/></svg></span><div><small>PRIVACY BY DESIGN</small><h3>Your image is yours. Full stop.</h3><p>Cutout Studio runs as a local web app. Your images are sent only to the Python server you start, processed in memory, and not saved to an application gallery.</p></div><span class="local-tag"><i></i> NO CLOUD UPLOADS<br><b>LOCAL PROCESSING</b></span></section>
+      <footer class="footer"><a href="#"><b>V.</b> VERITYAGENT</a><span>Designed for sharper creative workflows.</span><small>CUTOUT STUDIO · 2026</small></footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>
