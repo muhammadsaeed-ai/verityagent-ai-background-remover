@@ -1,31 +1,24 @@
-# Python
+# Python caches
 __pycache__/
 *.py[cod]
-*.pyd
-.Python
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
 .venv/
 venv/
 env/
-ENV/
-build/
-dist/
-*.egg-info/
 
-# Model cache (U2-Net weights can be large)
+# Generated images and model weights
+outputs/*
+!outputs/.gitkeep
 .u2net/
 ~/.u2net/
 
-# Local environment and logs
-.env
-.env.*
-!.env.example
-*.log
-
-# Generated output and uploads
-output/
-uploads/
-instance/
-.DS_Store
-Thumbs.db
+# Editors and operating systems
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db

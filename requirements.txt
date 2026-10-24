@@ -1,4 +1,4 @@
-Flask>=3.0,<4.0
-rembg[cpu]>=2.0.60,<3.0
-Pillow>=10.4,<12.0
-numpy>=1.26,<2.0
+# Python 3.10+. rembg[cpu] installs ONNX Runtime for CPU inference.
+rembg[cpu]>=2.0.67,<3.0
+Pillow>=10.4,<13.0
+numpy>=1.26,<3.0
