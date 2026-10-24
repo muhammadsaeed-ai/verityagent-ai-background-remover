@@ -166,9 +166,9 @@ The browser app provides a small local API for its own UI.
 Example request:
 
 ```bash
-curl -f -X POST http://127.0.0.1:5000/api/remove-background \\
-  -F "image=@input.png" \\
-  -F "mode=transparent" \\
+curl -f -X POST http://127.0.0.1:5000/api/remove-background \
+  -F "image=@input.png" \
+  -F "mode=transparent" \
   --output cutout.png
 ```
 
