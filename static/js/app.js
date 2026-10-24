@@ -2,7 +2,7 @@
   "use strict";
 
   const MAX_FILE_BYTES = 12 * 1024 * 1024;
-  const SUPPORTED_TYPES = new Set(["image/png", "image/jpeg", "image/webp", "image/bmp", "image/tiff"]);
+  const SUPPORTED_TYPES = new Set(["image/png", "image/jpeg", "image/webp", "image/bmp"]);
   const els = {
     uploadZone: document.getElementById("uploadZone"),
     sourceInput: document.getElementById("sourceInput"),
@@ -114,9 +114,9 @@
   function validateFile(file, label = "image") {
     if (!file) return false;
     const extension = file.name.split(".").pop().toLowerCase();
-    const allowedExtensions = new Set(["png", "jpg", "jpeg", "webp", "bmp", "tif", "tiff"]);
+    const allowedExtensions = new Set(["png", "jpg", "jpeg", "webp", "bmp"]);
     if (!(SUPPORTED_TYPES.has(file.type) || allowedExtensions.has(extension))) {
-      showMessage("Choose a PNG, JPG, WEBP, BMP, or TIFF " + label + ".", "error");
+      showMessage("Choose a PNG, JPG, WEBP, or BMP " + label + ".", "error");
       return false;
     }
     if (file.size > MAX_FILE_BYTES) {
