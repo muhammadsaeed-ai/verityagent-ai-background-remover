@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 :root {
   color-scheme: dark;
   --bg: #0a0d13;
@@ -221,7 +219,7 @@ svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.6; stroke
 .color-hex-wrap { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
 .color-hex-wrap span { color: #76858e; font: 500 6px var(--mono); letter-spacing: 1px; }
 .color-hex-wrap input { width: 100%; padding: 0; border: 0; outline: 0; background: transparent; color: #e0e9e7; font: 500 10px var(--mono); letter-spacing: .6px; text-transform: uppercase; }
-.color-hex-wrap input:focus-visible { outline: none; }
+.color-hex-wrap input:focus-visible { outline: 1px solid var(--mint); outline-offset: 2px; border-radius: 2px; }
 .copy-color { display: grid; place-items: center; width: 26px; height: 27px; border: 1px solid #303b45; border-radius: 6px; background: #18212a; color: #a6b6bb; font-size: 16px; cursor: pointer; }
 .color-presets { display: flex; justify-content: space-between; gap: 6px; margin-top: 9px; }
 .color-presets button { width: 23px; height: 23px; flex: 0 1 23px; border-radius: 50%; padding: 0; background: var(--swatch); border: 2px solid #0e141b; box-shadow: 0 0 0 1px #43505a; cursor: pointer; transition: transform .15s, box-shadow .15s; }
