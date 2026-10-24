@@ -34,7 +34,7 @@ No API key or hosted inference account is required. The first real inference may
   <img src="assets/architecture.svg" alt="Architecture showing the browser studio, Flask request validation, rembg U2-Net inference, Pillow compositing, and PNG output" width="100%">
 </p>
 
-The browser interface is a custom HTML/CSS/JavaScript application, backed by Flask and the same reusable image operations used by the CLI. Its graphite-and-mint visual system includes a responsive workspace, source and result panels, checkerboard transparency preview, three background modes, HEX color presets, local model status, original/result comparison, and PNG export.
+The browser interface is a custom HTML/CSS/JavaScript application, backed by Flask and the same reusable image operations used by the CLI. Its deep-navy and electric-cyan visual system includes a responsive workspace, source and result panels, checkerboard transparency preview, three background modes, HEX color presets, local model status, original/result comparison, and PNG export.
 
 ## Features
 
