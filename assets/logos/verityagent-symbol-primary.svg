@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 120 120" role="img" aria-labelledby="va-title va-desc">
+<title id="va-title">VerityAgent ribbon signal emblem</title><desc id="va-desc">A sculpted blue and cyan ribbon forms a dynamic V, with a small signal orb marking the forward tip.</desc>
+<defs>
+  <linearGradient id="va-left" x1="12" y1="21" x2="71" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3988FF"/><stop offset="0.43" stop-color="#1765F5"/><stop offset="0.78" stop-color="#07B9F4"/><stop offset="1" stop-color="#55F0F4"/></linearGradient>
+  <linearGradient id="va-right" x1="99" y1="10" x2="44" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#65F4FF"/><stop offset="0.22" stop-color="#20CFFB"/><stop offset="0.57" stop-color="#2878FF"/><stop offset="1" stop-color="#1744C9"/></linearGradient>
+  <linearGradient id="va-fold" x1="56" y1="60" x2="76" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#092F96" stop-opacity="0.05"/><stop offset="1" stop-color="#061B56" stop-opacity="0.8"/></linearGradient>
+  <radialGradient id="va-orb" cx="30%" cy="22%" r="80%"><stop offset="0" stop-color="#C2FCFF"/><stop offset="0.3" stop-color="#42E9FA"/><stop offset="0.72" stop-color="#12A8F6"/><stop offset="1" stop-color="#2364F6"/></radialGradient>
+  <linearGradient id="va-text-blue" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2D73FF"/><stop offset="1" stop-color="#12CFEA"/></linearGradient>
+</defs>
+<!-- Left descending ribbon -->
+<path d="M14.7 18.8C20.2 14.6 28.1 16.2 32.2 23.1L59.3 67.4C63.0 73.4 69.1 77.2 76.2 79.2C72.2 87.4 63.7 92.0 55.5 88.7C51.3 87.0 47.8 82.7 44.8 77.8L12.5 29.8C9.6 25.4 10.4 22.1 14.7 18.8Z" fill="url(#va-left)"/>
+<!-- Inner fold makes the ribbon read as a designed surface, not a line -->
+<path d="M37.2 29.8L61.5 68.7C64.4 73.1 69.3 76.6 76.2 79.2C72.9 86.0 67.4 89.9 61.0 90.1C54.4 88.0 50.8 82.6 47.9 77.7L28.9 48.2Z" fill="url(#va-fold)" opacity="0.68"/>
+<!-- Rising ribbon -->
+<path d="M46.1 74.1C59.7 56.8 73.7 31.8 86.5 12.6C90.2 7.0 97.4 6.3 102.0 10.8C106.0 14.7 105.6 19.8 102.3 25.4C89.9 47.0 76.7 70.7 62.7 87.5C56.9 94.4 48.4 94.9 40.9 87.6C38.5 85.2 38.4 82.8 40.1 80.4C42.0 77.9 44.1 76.0 46.1 74.1Z" fill="url(#va-right)"/>
+<!-- Highlight ribbons, controlled and subtle -->
+<path d="M17.3 22.2C22.3 19.8 27.4 23.0 30.2 28.4L43.6 50.1" fill="none" stroke="#C8F8FF" stroke-width="2.5" stroke-linecap="round" opacity="0.72"/>
+<path d="M58.8 68.7C69.4 53.6 81.0 32.6 91.1 16.4" fill="none" stroke="#D7FFFF" stroke-width="2.4" stroke-linecap="round" opacity="0.75"/>
+<!-- Signal orb at the open end -->
+<circle cx="101.5" cy="10.5" r="7.2" fill="#123E97" opacity="0.35"/>
+<circle cx="100.8" cy="9.4" r="6.0" fill="url(#va-orb)"/>
+<circle cx="98.9" cy="7.6" r="1.7" fill="#FFFFFF" opacity="0.72"/>
+</svg>
