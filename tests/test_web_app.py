@@ -106,7 +106,6 @@ class CutoutStudioWebTests(unittest.TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_bad_image_bytes_are_rejected(self):
-        response = self.post()
         with patch.object(web_app, "perform_removal", side_effect=AssertionError("must not run")):
             # Use the same route with malformed content to assert validation occurs before AI.
             result = self.client.post(
@@ -115,7 +114,6 @@ class CutoutStudioWebTests(unittest.TestCase):
                 content_type="multipart/form-data",
                 base_url="http://127.0.0.1:5000",
             )
-        self.assertIn(response.status_code, (200, 500))
         self.assertEqual(result.status_code, 400)
 
 
