@@ -1,183 +1,169 @@
-<p align="center">
-  <img src="assets/cutout-studio-banner.svg" alt="VerityAgent Cutout Studio — a local AI background-removal workspace" width="100%">
-</p>
+# AI Background Remover
 
-<h1 align="center">VerityAgent Cutout Studio</h1>
+**VerityAgent Python AI Mini Projects — Project 04**
 
-<p align="center">
-  <strong>Keep the subject. Lose everything else.</strong><br>
-  A polished local web app for AI background removal, transparent PNG export, and custom background compositing.
-</p>
+Remove an image background with AI, export a transparent PNG, then optionally replace it with a solid color or a custom image.
 
-<p align="center">
-  <a href="https://github.com/muhammadsaeed-ai/verityagent-ai-background-remover/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/muhammadsaeed-ai/verityagent-ai-background-remover/actions/workflows/ci.yml/badge.svg"></a>
-  <img alt="Python 3.10+" src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white">
-  <img alt="Flask" src="https://img.shields.io/badge/Flask-local%20web%20app-20232A?logo=flask">
-  <img alt="AI model" src="https://img.shields.io/badge/AI-rembg%20%2F%20U%C2%B2--Net-75D9AD?labelColor=172720">
-  <img alt="License MIT" src="https://img.shields.io/badge/License-MIT-9EF5CE?labelColor=172720">
-</p>
+**Workflow:** Input image → AI background removal → transparent PNG → optional background replacement.
 
-Cutout Studio combines a custom HTML/CSS/JavaScript interface with a Python image-processing backend. Drop in a product photo, portrait, or other image; let `rembg` isolate the foreground; then export a transparent PNG or composite the subject over a solid color or another image. The app is designed to run on your own machine: it does not require an API key or a hosted inference account.
+## Features
 
-## At a glance
+| Feature | Details |
+|---|---|
+| AI background removal | Uses the `rembg` U²-Net model. |
+| Transparent PNG | Keeps the model-generated alpha channel. |
+| Solid color | Composite over a validated `#RRGGBB` color. |
+| Custom image | Resize and center-crop a second image to fit. |
+| CLI modes | `transparent`, `solid`, and `image`. |
+| Helpful errors | Clear messages for invalid files, colors, and output paths. |
+| Offline tests | Unit tests mock inference and do not download model weights. |
 
-- **Three output modes:** transparent background, solid HEX color, or a user-uploaded replacement image.
-- **Local AI inference:** `rembg` with the U²-Net model; the model is initialized on the first processing request and reused by the server process.
-- **Purpose-built interface:** responsive dark creative studio, drag-and-drop upload, image preview, color presets, result comparison, status feedback, and one-click PNG export.
-- **Careful input handling:** checks image content rather than trusting file extensions, caps each uploaded image at 12 MB, and rejects images above 20 megapixels.
-- **Original-size PNG output:** retains the processed image dimensions and preserves the alpha channel when transparent mode is selected.
-- **Testable API:** a health endpoint and deterministic unit tests that mock inference, so tests do not download model weights.
+## Installation
 
-## The processing architecture
+Use Python 3.10 or newer.
 
-<p align="center">
-  <img src="assets/architecture.svg" alt="Cutout Studio architecture from browser interface through Flask validation, rembg U2-Net, Pillow and NumPy to a PNG response" width="100%">
-</p>
-
-The browser submits the chosen files and settings to the Flask API. The server validates the upload, normalizes the image with Pillow, runs foreground segmentation through `rembg`, and optionally composites a background. Pillow writes the final PNG; NumPy calculates the percentage of fully transparent pixels for response metadata.
-
-## Get started
-
-### 1. Requirements
-
-- Python **3.10 or newer**
-- `pip`
-- An internet connection for the first model-weight download
-- A modern browser
-
-The app runs on the CPU and does not require a GPU. First-run inference can take longer while the U²-Net weights are downloaded and loaded.
-
-### 2. Create a virtual environment
-
-**Windows PowerShell**
-
-```powershell
+```bash
 git clone https://github.com/muhammadsaeed-ai/verityagent-ai-background-remover.git
 cd verityagent-ai-background-remover
-py -3.11 -m venv .venv
-.\\.venv\\Scripts\\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m venv .venv
+```
+
+Activate the environment:
+
+**Windows Command Prompt**
+```bat
+.venv\Scripts\activate.bat
+```
+
+**Windows PowerShell**
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
 
 **macOS / Linux**
-
 ```bash
-git clone https://github.com/muhammadsaeed-ai/verityagent-ai-background-remover.git
-cd verityagent-ai-background-remover
-python3 -m venv .venv
 source .venv/bin/activate
+```
+
+Install packages:
+
+```bash
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-### 3. Start the studio
+The `rembg[cpu]` extra installs the CPU ONNX Runtime dependency. The first real inference may download model weights. Unit tests do not.
+
+## Usage
+
+Put your images in `sample_images/` or pass a path elsewhere. Supported inputs: JPEG, PNG, WebP, BMP, and TIFF.
+
+### Help
 
 ```bash
-python app.py
+python app.py --help
 ```
 
-Open **[http://127.0.0.1:5000](http://127.0.0.1:5000)** in your browser. The server binds to loopback only, so it is not exposed to the local network by default. Stop it with `Ctrl+C`.
-
-## Use the studio
-
-1. **Upload a source image.** Drag it into the source panel or choose a file. The web interface accepts PNG, JPG/JPEG, WEBP, and BMP. The server also accepts TIFF for direct API callers.
-2. **Choose a background finish.** Select transparent output, a solid color, or a custom background image.
-3. **Process the image.** The first request may take longer while the model is initialized.
-4. **Compare and export.** Switch between the original and processed preview, then choose **Export PNG** to save the result.
-
-### Background modes
-
-| Mode | Result |
-|---|---|
-| Transparent | Foreground on an alpha-enabled canvas; transparent pixels are retained in PNG. |
-| Solid color | Foreground composited over a selected HEX color. Includes quick color presets. |
-| New image | Foreground composited over an uploaded background, center-cropped to cover the output dimensions. |
-
-## API reference
-
-The web interface uses `POST /api/remove-background`. It accepts `multipart/form-data` and returns a PNG on success or a JSON error object with an appropriate HTTP status on validation failure.
-
-| Field | Required | Description |
-|---|---|---|
-| `image` | Yes | Source image file; maximum 12 MB. |
-| `mode` | No | `transparent` (default), `color`, or `image`. |
-| `color` | For `color` mode | Six-digit HEX value such as `#F4F1EB`. |
-| `background` | For `image` mode | Replacement background image; maximum 12 MB. |
-
-Example: remove the background and save a transparent PNG.
+### Transparent PNG
 
 ```bash
-curl -f -X POST http://127.0.0.1:5000/api/remove-background \\
-  -F "image=@input.png" \\
-  -F "mode=transparent" \\
-  --output cutout.png
+python app.py --input sample_images/person.jpg --output outputs/person.png
 ```
 
-Example: composite the foreground over a solid color.
+### Solid-color replacement
 
 ```bash
-curl -f -X POST http://127.0.0.1:5000/api/remove-background \\
-  -F "image=@input.jpg" \\
-  -F "mode=color" \\
-  -F "color=#E0F0EA" \\
-  --output product-cutout.png
+python app.py --input sample_images/person.jpg --output outputs/person_blue.png --mode solid --color "#2563EB"
 ```
 
-`GET /healthz` returns a lightweight JSON health status without loading the segmentation model. Successful image responses include `X-Output-Width`, `X-Output-Height`, `X-Transparent-Pixels`, and `X-Output-Format` headers.
+Color must be six-digit hexadecimal (`#RRGGBB`). Default: `#FFFFFF`.
 
-## Tests
-
-Install the development dependency and run the suite:
+### Custom image background
 
 ```bash
-python -m pip install -r requirements-dev.txt
-python -m pytest -q
+python app.py --input sample_images/person.jpg --output outputs/person_scene.png --mode image --background sample_images/background.jpg
 ```
 
-The tests use generated in-memory images and a mocked segmentation function. They cover the health endpoint, homepage rendering, missing and invalid uploads, transparent output, solid-color compositing, custom-background compositing, validation before inference, and cross-origin request rejection. They do **not** measure segmentation quality or download real model weights.
+The replacement image is scaled proportionally and center-cropped to the foreground dimensions. Transparent pixels in a replacement background are flattened over white.
 
-A GitHub Actions workflow runs the test suite against Python 3.10, 3.11, and 3.12.
+If `--output` is omitted, the result is saved as `outputs/<input-name>_no_bg.png`.
 
-## Privacy and safety boundaries
+## Demo
 
-- The server binds to `127.0.0.1:5000` and rejects unexpected host values and cross-origin browser requests.
-- Image uploads are processed in memory. The application does not save source images or results into a gallery.
-- The `rembg` model weights are cached by the model library on the machine; those weights are separate from uploaded image data.
-- Files are checked by decoded format and pixel count. Each source/background file must be no larger than 12 MB and no larger than 20 megapixels.
-- Local-first is not a substitute for machine security. Use a trusted device, keep dependencies updated, and do not expose Flask's development server directly to the internet.
+Screenshots are not bundled yet. Add genuine examples here when available:
+- [ ] Original image and transparent PNG preview
+- [ ] Solid-color background result
+- [ ] Custom image background result
 
-## Limitations
-
-Cutout quality depends on the subject, contrast, lighting, and occlusion. Fine hair, glass, motion blur, low contrast, and complex edges may require manual refinement in an image editor. This version processes one source image per request; it does not provide batch processing, manual mask editing, user accounts, or cloud storage.
-
-## Project structure
+## Project Structure
 
 ```text
 verityagent-ai-background-remover/
-├── app.py                     # Flask routes, upload validation, segmentation and compositing
-├── requirements.txt           # Runtime dependencies
-├── requirements-dev.txt       # Test dependency
-├── templates/
-│   └── index.html             # Studio interface
-├── static/
-│   ├── css/styles.css         # Responsive visual system
-│   └── js/app.js              # Upload, controls, preview and export
-├── assets/
-│   ├── cutout-studio-banner.svg
-│   └── architecture.svg
+├── app.py
+├── background_remover.py
+├── config.py
+├── requirements.txt
+├── .gitignore
+├── README.md
+├── LICENSE
 ├── tests/
-│   └── test_app.py
-└── .github/workflows/ci.yml
+│   ├── __init__.py
+│   └── test_background_remover.py
+├── sample_images/
+│   └── .gitkeep
+└── outputs/
+    └── .gitkeep
 ```
+
+| File | Purpose |
+|---|---|
+| `app.py` | CLI arguments, mode selection, and terminal progress. |
+| `background_remover.py` | Image loading, rembg inference, compositing, validation, and saving. |
+| `config.py` | Model choice, defaults, and supported formats. |
+| `requirements.txt` | Python dependencies, including the CPU inference runtime extra. |
+| `tests/` | Fast tests using mocked model output. |
+| `sample_images/` | Source images and optional background images. |
+| `outputs/` | Generated results. |
+| `LICENSE` | License for this project's files. |
+
+## How It Works
+
+1. Pillow validates and loads the image as RGBA.
+2. The image is encoded as PNG bytes for inference.
+3. `rembg` runs the configured `u2net` model and generates foreground transparency.
+4. The result is normalized to RGBA and checked against the input dimensions.
+5. The application keeps the transparency or composites the foreground over a solid/custom background.
+6. Pillow saves the result to the requested path.
+
+## Technologies
+
+- **Python 3.10+:** CLI and reusable application logic.
+- **rembg:** Background removal using a pretrained segmentation model.
+- **Pillow:** Image loading, resizing, compositing, and saving.
+- **NumPy:** Efficient solid-color canvas creation.
+- **ONNX Runtime:** CPU inference, installed via `rembg[cpu]`.
+
+## Testing
+
+```bash
+python -m unittest discover -v
+```
+
+Tests use generated images and mocked inference, so no network/model download is required. To verify actual AI inference, install dependencies and run a usage command with a real image. The first run may need internet access to download model weights.
+
+## Limitations
+
+- Results vary with lighting, image quality, hair/fine details, reflections, transparency, and model behavior.
+- First inference may download model weights and use disk space.
+- Runtime and memory use depend on image dimensions and hardware.
+- This is a command-line application, not a web UI or batch-processing interface.
+- JPEG cannot preserve alpha; transparent output should be PNG.
+- No sample photos or model weights are bundled.
+
+## Future Improvements
+
+Batch processing, a web UI, drag-and-drop, webcam processing, custom segmentation models, background blur, and background presets.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
-
----
-
-<p align="center">
-  <strong>Built by <a href="https://github.com/muhammadsaeed-ai">VerityAgent</a></strong><br>
-  <sub>Local-first AI tools with thoughtful UX and clear technical boundaries.</sub>
-</p>
+This project's original code and documentation are released under the MIT License; see [LICENSE](LICENSE). That license covers this repository only. Third-party dependencies and pretrained model weights may have their own license and usage terms; review them before redistribution or commercial use.
