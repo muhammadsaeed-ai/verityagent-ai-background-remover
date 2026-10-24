@@ -34,7 +34,7 @@ No API key or hosted inference account is required. The first real inference may
   <img src="assets/architecture.svg" alt="Architecture showing the browser studio, Flask request validation, rembg U2-Net inference, Pillow compositing, and PNG output" width="100%">
 </p>
 
-The browser interface is a custom HTML/CSS/JavaScript application, backed by Flask and the same reusable image operations used by the CLI. Its deep-navy and electric-cyan visual system includes a responsive workspace, source and result panels, checkerboard transparency preview, three background modes, HEX color presets, local model status, original/result comparison, and PNG export.
+The browser interface is a custom HTML/CSS/JavaScript application, backed by Flask and the same reusable image operations used by the CLI. It uses the official VerityAgent Ribbon Signal logo masters rather than a recreated V mark. Its deep-navy and electric-cyan visual system includes a responsive workspace, source and result panels, checkerboard transparency preview, three background modes, HEX color presets, local model status, original/result comparison, and PNG export.
 
 ## Features
 
@@ -223,11 +223,18 @@ verityagent-ai-background-remover/
 ├── requirements-web.txt      # Optional browser interface dependency
 ├── templates/index.html      # Studio markup
 ├── static/
+│   ├── img/
+│   │   ├── verityagent-symbol-primary.svg
+│   │   └── verityagent-lockup-dark.svg
 │   ├── css/styles.css        # Responsive visual design
 │   └── js/app.js             # Upload, preview, background modes and export
 ├── assets/
+│   ├── readme-showcase.svg
 │   ├── cutout-studio-banner.svg
-│   └── architecture.svg
+│   ├── architecture.svg
+│   └── logos/
+│       ├── verityagent-symbol-primary.svg
+│       └── verityagent-lockup-dark.svg
 ├── tests/
 │   ├── test_background_remover.py
 │   └── test_web_app.py
