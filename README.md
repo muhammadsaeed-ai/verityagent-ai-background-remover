@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/readme-showcase.svg" alt="VerityAgent Cutout Studio — a premium local AI background-removal workspace" width="100%">
+  <img src="assets/verityagent-project-showcase.svg" alt="VerityAgent Cutout Studio — a premium local AI background-removal workspace" width="100%">
 </p>
 
 <h1 align="center">VerityAgent AI Background Remover</h1>
@@ -229,7 +229,7 @@ verityagent-ai-background-remover/
 │   ├── css/styles.css        # Responsive visual design
 │   └── js/app.js             # Upload, preview, background modes and export
 ├── assets/
-│   ├── readme-showcase.svg
+│   ├── verityagent-project-showcase.svg
 │   ├── cutout-studio-banner.svg
 │   ├── architecture.svg
 │   └── logos/
